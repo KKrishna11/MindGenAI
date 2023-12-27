@@ -44,3 +44,49 @@ model User {
   accounts Account[]
   sessions Session[]
 }
+
+model Course{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  image String
+  units Unit[]
+
+}
+
+model Unit{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+
+  courseId String
+
+  name String
+
+  course Course @relation(fields:[courseId],references:[id])
+
+  chapters Chapter[]
+
+}
+
+model Chapter{
+    id            String @id @default(auto()) @map("_id") @db.ObjectId
+
+    unitId String 
+
+    name String
+    youtubeSearchQuery String
+    videoId String?
+    summary String?
+    unit Unit @relation(fields:[unitId],references:[id])
+
+    questions Question[]
+}
+
+model Question{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+
+  chapterId String
+  question String
+  answer String
+  options String
+  chapter  Chapter @relation(fields:[chapterId],references:[id])
+
+}

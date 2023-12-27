@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
-import { Provider } from "@/components/Providers";
-
+import { Provider } from "@/components/ui/Providers";
+import { Toaster } from "@/components/ui/toaster"
 const lexend = Lexend({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,6 +22,7 @@ export default function RootLayout({
         <Provider>
           <Navbar />
           {children}
+          <Toaster/>
         </Provider>
       </body>
     </html>
