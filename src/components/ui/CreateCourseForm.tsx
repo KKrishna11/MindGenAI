@@ -15,22 +15,24 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useToast } from "./use-toast";
 import { useRouter } from "next/navigation";
+import SubscriptionAction from "./SubscriptionAction";
 // import SubscriptionAction from "../SubscriptionAction";
 
-type Props = {};
+type Props = { isPro: boolean };
 type Input = z.infer<typeof createChaptersSchema>;
 
-const CreateCourseForm = (props: Props) => {
-  const router=useRouter();
+const CreateCourseForm = ({ isPro }: Props) => {
+  const router = useRouter();
   const { toast } = useToast();
-  const { mutate: createChapters} = useMutation({
+  const { mutate: createChapters } = useMutation({
     mutationFn: async ({ title, units }: Input) => {
       //  /api/course rakh agar host kar raha hai toh
       const response = await axios.post(
-        "http://localhost:3000/api/course/createChapters", {
-        title, 
-        units,
-       }
+        "http://localhost:3000/api/course/createChapters",
+        {
+          title,
+          units,
+        }
       );
       return response.data;
     },
@@ -52,20 +54,20 @@ const CreateCourseForm = (props: Props) => {
       return;
     }
     createChapters(data, {
-      onSuccess: ({course_id}) => {
+      onSuccess: ({ course_id }) => {
         toast({
-          title:"SUCCESSFULL",
+          title: "SUCCESSFULL",
           description: " COURSE CREATED SUCCESFULLY ",
-        })
-        console.log("succcess")
-        router.push(`/create/${course_id}`)
-       },
+        });
+        console.log("succcess");
+        router.push(`/create/${course_id}`);
+      },
       onError: (error) => {
         console.error(error);
         toast({
           title: "Error",
           description: " something went worng",
-          variant: "destructive"
+          variant: "destructive",
         });
       },
     });
@@ -75,25 +77,23 @@ const CreateCourseForm = (props: Props) => {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full mt-4"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-4">
           <FormField
             control={form.control}
             name="title"
             render={({ field }) => {
-
               return (
                 <FormItem className="flex flex-col items-start w-full sm:items-center sm:flex-row">
                   <FormLabel className="flex-[1] text-xl">Title</FormLabel>
                   <FormControl className="flex-[6]">
-                    <Input placeholder="Enter the main topic of the course "   {...field}/>
+                    <Input
+                      placeholder="Enter the main topic of the course "
+                      {...field}
+                    />
                   </FormControl>
                 </FormItem>
               );
             }}
-
           />
           <AnimatePresence>
             {form.watch("units").map((_, index) => {
@@ -133,7 +133,6 @@ const CreateCourseForm = (props: Props) => {
             })}
           </AnimatePresence>
 
-
           <div className="flex items-center justify-center mt-4  ">
             <Separator className="flex-1" />
             <div className="mx-4 ">
@@ -162,16 +161,12 @@ const CreateCourseForm = (props: Props) => {
             </div>
             <Separator className="flex-1" />
           </div>
-          <Button
-            type="submit"
-            className="w-full mt-8"
-            size="lg"
-          >
+          <Button type="submit" className="w-full mt-8" size="lg">
             LET'S AI
           </Button>
         </form>
       </Form>
-      {/* <SubscriptionAction/> */}
+      {!isPro && <SubscriptionAction />}
     </div>
   );
 };

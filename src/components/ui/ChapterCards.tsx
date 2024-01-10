@@ -87,8 +87,8 @@ const ChapterCards = React.forwardRef<ChapterCardsHandler, Props>(
         key={chapters.id}
         className={cn("px-4 py-2 mt-2 rounded flex justify-between", {
           "bg-secondary": success === null,
-          "bg-red-600": success == false,
-          "bg-green-500": success === true,
+          "bg-green-950": success == false,
+          "bg-green-600": success === true,
         })}
       >
         <h5>{chapters.name}</h5>
