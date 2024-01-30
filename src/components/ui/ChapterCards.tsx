@@ -34,27 +34,23 @@ const ChapterCards = React.forwardRef<ChapterCardsHandler, Props>(
       },
     });
 
-
-
     const addChapterIdtoSet = React.useCallback(() => {
       // const newSet = new Set(completedChapters);
       // newSet.add(chapters.id);
       // setCompletedChapters(newSet);
-        setCompletedChapters((prev)=>{
-          const newSet =new Set(prev)
-          newSet.add(chapters.id)
-          return newSet;
-        })
-    
+      setCompletedChapters((prev) => {
+        const newSet = new Set(prev);
+        newSet.add(chapters.id);
+        return newSet;
+      });
     }, [chapters.id, setCompletedChapters]);
 
-    React.useEffect(()=>{
-      if(chapters.videoId){
+    React.useEffect(() => {
+      if (chapters.videoId) {
         setSuccess(true);
         addChapterIdtoSet;
       }
-    },[chapters,addChapterIdtoSet]);
-
+    }, [chapters, addChapterIdtoSet]);
 
     React.useImperativeHandle(ref, () => ({
       async triggerLoad() {
@@ -92,7 +88,7 @@ const ChapterCards = React.forwardRef<ChapterCardsHandler, Props>(
         })}
       >
         <h5>{chapters.name}</h5>
-        {isPending && <Loader2 className="animate-spin"/>}
+        {isPending && <Loader2 className="animate-spin" />}
       </div>
     );
   }

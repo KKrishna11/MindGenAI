@@ -5,7 +5,9 @@ import ChapterCards, { ChapterCardsHandler } from "./ChapterCards";
 import { Separator } from "./separator";
 import Link from "next/link";
 import { Button, buttonVariants } from "./button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { useToast } from "./use-toast";
+import { ToastAction } from "./toast";
 // import { object } from "zod";
 
 type Props = {
@@ -15,6 +17,7 @@ type Props = {
     })[];
   };
 };
+
 
 const ConfirmChapters = ({ course }: Props) => {
   const chapterRefs: Record<string, React.RefObject<ChapterCardsHandler>> = {};
@@ -35,6 +38,7 @@ const ConfirmChapters = ({ course }: Props) => {
   }, [course.units]);
   console.log(totalChapterCount, completedChapters.size);
   console.log(chapterRefs);
+  const { toast } = useToast();
 
   return (
     <div className="w-full mt-4">
@@ -76,7 +80,12 @@ const ConfirmChapters = ({ course }: Props) => {
           </Link>
           {totalChapterCount === completedChapters.size ? (
             <Button className="ml-4 px-5 ">
-              <Link href={`/course/${course.id}/0/0`} className="ml-4 font-semibold">Continue</Link>
+              <Link
+                href={`/course/${course.id}/0/0`}
+                className="ml-4 font-semibold"
+              >
+                Continue
+              </Link>
             </Button>
           ) : (
             <Button
@@ -85,6 +94,14 @@ const ConfirmChapters = ({ course }: Props) => {
               disabled={loading}
               onClick={() => {
                 setLoading(true);
+                toast({
+                  title: "Wait For a Second",
+                  description: "MindGenAI",
+                  action: (
+                    <ToastAction altText="Try again">Try again</ToastAction>
+                  ),
+                });
+
                 Object.values(chapterRefs).forEach((ref) => {
                   ref.current?.triggerLoad();
                 });
