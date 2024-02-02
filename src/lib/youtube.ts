@@ -9,7 +9,7 @@ import axios from "axios";
 //     `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API}&q=${searchQuery}&videoDuration=medium&videoEmbeddable=true&type=video&maxResults=5`
 //   );
 //   if(!data){
-   
+
 //     console.log("youtube fail");
 //     return null;
 //   }
@@ -41,8 +41,6 @@ export async function searchYouTube(searchQuery: string) {
   return json.items[0].id.videoId;
 }
 
-
-
 export async function getTranscript(videoId: string) {
   try {
     let transcript_Arr = await YoutubeTranscript.fetchTranscript(videoId, {
@@ -56,30 +54,27 @@ export async function getTranscript(videoId: string) {
     return transcript.replaceAll("\n", "");
   } catch (error) {
     return "No Summary Available For the video , And I dont think you need that ";
-    
   }
 }
 
+
 export async function getQuestionsFromTranscript(
-    transcript: string,
+  transcript: string,
   course_title: string
 ) {
-   type Question={
-        question :string,
-        answer:string,
-        option1:string,
-        option2:string,
-    };
-  const questions :Question[]= await strict_output(
-    "you are a helpful AI  that is able to geneate mcq question and answer , the length of each answer should not be more than 10 word",
-    new Array(2).fill(
-      `you are to genarte a random easy mcq question about ${course_title} with context of the following transcript : ${transcript}`
+  type Question = {
+    [x: string]: any;
+    question: string;
+    answer: string;
+  };
+  const questions: Question[] = await strict_output(
+    "You are a helpful AI that is able to generate  question and answers, the length of each answer should not be more than 10 words",
+    new Array(1).fill(
+      `You are to generate a random hard question about ${course_title} with context of the following transcript: ${transcript}`
     ),
     {
-      qquestion: "question",
+      question: "question",
       answer: "answer with max length of 10 words",
-      option1: "options1  with max length of 10 words",
-      option2: "options2  with max length of 10 words",
     }
   );
   return questions;

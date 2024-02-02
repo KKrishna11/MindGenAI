@@ -38,34 +38,31 @@ export async function POST(req: Request, res: Response) {
 
     const { summary }: { summary: string } = await strict_output(
       "You are an AI capable of summarising a youtube transcript",
-      "summarise in 400 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about.\n"+transcript,
+      "summarise in 500 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about. or give the breif description about that please \n"+transcript,
       { summary: "summary of the transcript" }
     );
  
     console.log("now run question");
    
-    // const questions = await getQuestionsFromTranscript(
-    //   transcript,
-    //   chapter.name
-    // );
-
-    // await prisma.questions.createMany({
-    //   data: questions.map((question) => {
-    //     let options = [
-    //       question.answer,
-    //       question.option1,
-    //       question.option2,
-    //     ];
-    //     options = options.sort(() => Math.random() - 0.5);
-    //     return {
-    //       question: question.question,
-    //       answer: question.answer,
-    //       options: JSON.stringify(options),
-    //       chapterId: chapterId,
-    //     };
-    //   }),
-    // });
-    // console.log("question endedd");
+    try {
+      const questions = await getQuestionsFromTranscript(
+        transcript,
+        chapter.name
+      );  
+      await prisma.question.createMany({
+        data: questions.map((question: { question: string; answer: string; }) => {
+          return {
+            question: question.question,
+            answer: question.answer,
+            chapterId: chapterId,
+          };
+        }),
+      });
+    } catch (error) {
+      console.log(error)
+    }
+    
+    console.log("question endedd");
 
 
     await prisma.chapter.update({
