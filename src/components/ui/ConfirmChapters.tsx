@@ -48,7 +48,7 @@ const ConfirmChapters = ({ course }: Props) => {
             <h2 className="text-sm uppercase text-secondary-foreground/60">
               Unit {unitIndex + 1}
             </h2>
-            <h3 className="text-2xl font-bold">{units.name}</h3>
+            <h3 className="text-2xl font-bold">{units.name} </h3>
             <div className="mt-3">
               {units.chapters.map((chapters, chapterIndex) => {
                 return (

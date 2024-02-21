@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={lexend.className}>
         <Provider>
           <Navbar />
+          
           {children}
           <Toaster/>
         </Provider>

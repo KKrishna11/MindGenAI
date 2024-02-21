@@ -34,14 +34,14 @@ const createChapters = async({params:{courseId}}: Props) => {
     }
   return (
     // <pre>{JSON.stringify(course,null,2)}</pre>
-    <div className='flex flex-col items-start max-w-xl mx-auto my-18'>
-      <h5 className='text-sm uppercase text-secondary -foreground/60'>
-      Course Name
+    <div className='flex flex-col items-start max-w-xl mx-auto my-18 mt-10'>
+      {/* <h5 className='text-sm uppercase text-secondary -foreground/60'>
+      Course Name Hello 
       </h5>
       <h1>
-        {course.name}
-      </h1>
-      <div className='flex p-4 mt-5 border-none bg-secondary'>
+        {course.name} hello 
+      </h1> */}
+      <div className='flex p-4 mt-10 border-none bg-secondary'>
         <Info className='w-12 h-12 mr-3 text-blue-400'/>
         <div>
           we genarted chapter for each of your units. looks over them and then click the button  to confirm and contiinuing
