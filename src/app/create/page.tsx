@@ -12,20 +12,26 @@ const CreatePage = async (props: Props) => {
   if (!session?.user) {
     return redirect("gallery");
   }
-  const isPro =await checkSubscription()
+  const isPro = await checkSubscription();
   return (
-    <div className="flex flex-col items-start max-w-xl px-8 mx-auto my-16 sm:px-0">
-      <h1 className="self-center text-3xl font-bold text-center sm:text-6xl">
-        MindGen-AI
-      </h1>
-      <div className="flex p-4 mt-4 border-none bg-secondary">
-        <InfoIcon className="w-12 h-12 mr-3 text-blue-50" />
-        <div>
-          Enter the course title , or what you want to learn about list of units
-          which are the specific you want to learn will genarte a course for you
-        </div>
+    <div
+      className="sidewaycontainer  w-full  bg-cover bg-center bg-black pb-10"
+      style={{ backgroundImage: "url(/Stars.png)" }}
+    >
+      <div className="firstside max-w-xl px-8 mx-auto my-10 sm:px-0  ">
+        <img src="/AiteachingHuman.png" alt="" />
       </div>
-      <CreateCourseForm isPro={isPro}/>
+      <div className="flex flex-col items-start max-w-xl px-8 mx-auto my-10 sm:px-0 secondside">
+        <div className="flex p-2 mb-3 border-2  border-white  bg-secondary">
+          <InfoIcon className="w-12 h-12 mr-3 text-blue-50" />
+          <div>
+            Enter the course title , or what you want to learn about list of
+            units which are the specific you want to learn will genarte a course
+            for you
+          </div>
+        </div>
+        <CreateCourseForm isPro={isPro} />
+      </div>
     </div>
   );
 };

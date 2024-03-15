@@ -3,7 +3,6 @@
 import { prisma } from "@/lib/db";
 import { strict_output } from "@/lib/gpt";
 import {
-  getQuestionsFromTranscript,
   getTranscript,
   searchYouTube,
 } from "@/lib/youtube";
@@ -38,31 +37,31 @@ export async function POST(req: Request, res: Response) {
 
     const { summary }: { summary: string } = await strict_output(
       "You are an AI capable of summarising a youtube transcript",
-      "summarise in 500 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about. or give the breif description about that please \n"+transcript,
+      "summarise in 400 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about. or give the breif description about that please \n"+transcript,
       { summary: "summary of the transcript" }
     );
  
     console.log("now run question");
    
-    try {
-      const questions = await getQuestionsFromTranscript(
-        transcript,
-        chapter.name
-      );  
-      await prisma.question.createMany({
-        data: questions.map((question: { question: string; answer: string; }) => {
-          return {
-            question: question.question,
-            answer: question.answer,
-            chapterId: chapterId,
-          };
-        }),
-      });
-    } catch (error) {
-      console.log(error)
-    }
+    // try {
+    //   const questions = await getQuestionsFromTranscript(
+    //     transcript,
+    //     chapter.name
+    //   );  
+    //   await prisma.question.createMany({
+    //     data: questions.map((question: { question: string; answer: string; }) => {
+    //       return {
+    //         question: question.question,
+    //         answer: question.answer,
+    //         chapterId: chapterId,
+    //       };
+    //     }),
+    //   });
+    // } catch (error) {
+    //   console.log(error)
+    // }
     
-    console.log("question endedd");
+    // console.log("question endedd");
 
 
     await prisma.chapter.update({

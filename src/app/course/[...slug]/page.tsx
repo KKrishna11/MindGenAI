@@ -38,7 +38,7 @@ const CoursePage = async ({ params: { slug } }: Props) => {
     return redirect("/gallery");
   }
   return (
-    <div>
+    <div className="mt-2">
       <CourseSideBar course={course} currentChpterId={chapter.id} />
       <div className="ml-[400px] px-8 ">
       <div className="flex">

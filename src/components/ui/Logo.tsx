@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Logo() {
   return (
     <div className="absolute scale-50 -translate-x-1/2 -translate-y-1/2 lg:scale-90 left-1/2 top-1/2">
-      <svg
+      {/* <svg
         width="207"
         height="215"
         viewBox="0 0 207 215"
@@ -105,15 +105,16 @@ export default function Logo() {
             <stop offset="1" stopColor="white" stopOpacity="0.72" />
           </linearGradient>
         </defs>
-      </svg>
-
+      </svg> */}
       <Image
-        src="/logo-black.png"
-        alt="/"
-        width={75}
-        height={75}
-        className="absolute top-[9%] left-1/2"
+        src="/aileftright.gif"
+        className=""
+        alt="Follow us on Twitter"
+        width={300}
+        height={400}
       />
+
+    
     </div>
   );
 }

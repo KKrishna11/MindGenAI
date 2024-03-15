@@ -16,7 +16,7 @@ type Props = {
 
 const CourseSideBar = async ({ course ,currentChpterId}: Props) => {
   return (
-    <div className="w-[400px] absolute top-1/2 -translate-y-1/2 p-6 rounded-r-3xl bg-secondary">
+    <div className="w-[400px] absolute top-2/3-translate-y-1/2 p-6 rounded-r-3xl bg-secondary mt-14 " >
       <h1 className="text-xl font-bold ">{course.name}</h1>
       {course.units.map((units, unitIndex) => {
         return (

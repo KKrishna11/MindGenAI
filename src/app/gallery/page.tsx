@@ -16,17 +16,14 @@ const page = async (props: Props) => {
   });
 
   return (
-    <div className="py-8 mx -auto max-w-7xl mt-10">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center">
-        {
-          course.map(course=>{
-            return <GalleryCourseCard course={course} key={course.id}/>
-          })
-        }
-      </div>
-    </div>
-  )
-  
-  
+    <main
+      style={{ backgroundImage: "url(/Stars.png)" }}
+      className=" py-10  mt-10 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center bg-cover bg-center bg-black   "
+    >
+      {course.map((course) => {
+        return <GalleryCourseCard course={course} key={course.id} />;
+      })}
+    </main>
+  );
 };
 export default page;

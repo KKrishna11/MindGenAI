@@ -22,8 +22,6 @@ const ChapterCards = React.forwardRef<ChapterCardsHandler, Props>(
     ref
   ) => {
     const { toast } = useToast();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    /* tslint:disable:no-unused-variable */
     const [success, setSuccess] = React.useState<boolean | null>(null);
     const { mutate: getChapterInfo, isPending } = useMutation({
       mutationFn: async () => {

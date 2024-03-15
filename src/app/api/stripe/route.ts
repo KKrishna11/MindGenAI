@@ -31,7 +31,7 @@ export async function GET() {
       payment_method_types: ["card"],
       mode: "subscription",
       billing_address_collection: "auto",
-      customer_email: session.user.email ?? "",
+      customer_email: session.user.email ?? " ",
       line_items: [
         {
           price_data: {
@@ -41,7 +41,7 @@ export async function GET() {
               name: "MindGen-AI",
               description: "Unlimted Course Generation",
             },
-            unit_amount: 10000,
+            unit_amount: 100,
             recurring: {
               interval: "month",
             },
