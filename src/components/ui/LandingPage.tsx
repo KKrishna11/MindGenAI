@@ -725,10 +725,10 @@ const Landingpage = () => {
             </p>
             <span></span>
 
-            <p className="footer-company-name pl-4">
-              Made with
+            <p className="footer-company-name pl-4  " >
+              Made  With
               <span>  ❤️</span>
-              by
+                By
               <a href="https://krishnakushwaha.netlify.app/"> Krishna</a>
             </p>
           </div>
@@ -765,8 +765,7 @@ const Landingpage = () => {
           <div className="footer-right">
             <p className="footer-company-about">
               <span>About the company</span>
-              we create designs that not only make a space look and function
-              better but significantly affect your mood and wellbeing.
+              Your AI-Powered Learning Companion. Personalized learning experiences for all. Join us on a journey of discovery and growth. Elevate your learning experience with cutting-edge technology. Unlock your full potential with us
             </p>
 
             <div className="footer-icons">

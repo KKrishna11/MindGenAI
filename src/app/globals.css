@@ -441,9 +441,12 @@ figure.snip1390 .profile {
 
 .footer-distributed .footer-company-name {
   color: white;
-  font-size: 14px;
+  font-size: 18px;
+  padding: 14px;
+  line-height: 10px;
+  z-index: 100px;
   font-weight: normal;
-  margin: 0;
+
 }
 
 /* Footer Center */
@@ -897,7 +900,7 @@ li {
   color: red;
 }
 .cover-img .cover-inner {
-  background: url(https://images.unsplash.com/photo-1565172265978-aaa872e3f618?ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80);
+  background: url(https://images.unsplash.com/photo-1583585635793-0e1894c169bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGhkJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D);
   height: 190px;
   background-size: cover;
   background-position: 10%;

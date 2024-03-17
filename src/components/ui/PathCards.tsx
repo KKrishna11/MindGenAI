@@ -29,23 +29,28 @@ const PathCards = ({
   unitIndex,
 }: Props) => {
   useEffect(() => {
-    const dayTitle = document.querySelector<HTMLHeadingElement>("#dayName");
+    console.log("running");
+    // const dayTitle = document.querySelector<HTMLHeadingElement>("#dayName");
 
-    if (!dayTitle) {
-      return; // Exit early if any required elements are not found
-    }
+    // if (!dayTitle) {
+    //   console.log(
+    //     'idhar'
+    //   )
+    //   return; // Exit early if any required elements are not found
+    // }
 
-    const lang = navigator.language;
+    // const lang = navigator.language;
 
-    const updateDayName = () => {
-      const date = new Date();
-      const dayName = date.toLocaleString(lang, {
-        weekday: "long",
-      });
-      dayTitle.innerHTML = dayName;
-    };
+    // const updateDayName = () => {
+    //   const date = new Date();
+    //   const dayName = date.toLocaleString(lang, {
+    //     weekday: "long",
+    //   });
+    //   dayTitle.innerHTML = dayName;
+    // };
 
-    updateDayName(); // Set initial day name
+    // updateDayName();
+    // Set initial day name
 
     const taskInput =
       document.querySelector<HTMLInputElement>(".task-input input");
@@ -173,20 +178,20 @@ const PathCards = ({
       localStorage.setItem("todo-list", JSON.stringify(todos));
     }
 
-    function editTask(taskId: number, textName: string) {
-      editId = taskId;
-      isEditTask = true;
-      taskInput!.value = textName;
-      taskInput!.focus();
-      taskInput!.classList.add("active");
-    }
+    // function editTask(taskId: number, textName: string) {
+    //   editId = taskId;
+    //   isEditTask = true;
+    //   taskInput!.value = textName;
+    //   taskInput!.focus();
+    //   taskInput!.classList.add("active");
+    // }
 
-    function deleteTask(deleteId: number, filter: string) {
-      isEditTask = false;
-      todos!.splice(deleteId, 1);
-      localStorage.setItem("todo-list", JSON.stringify(todos));
-      showTodo(filter);
-    }
+    // function deleteTask(deleteId: number, filter: string) {
+    //   isEditTask = false;
+    //   todos!.splice(deleteId, 1);
+    //   localStorage.setItem("todo-list", JSON.stringify(todos));
+    //   showTodo(filter);
+    // }
 
     clearAll?.addEventListener("click", () => {
       isEditTask = false;
@@ -226,14 +231,12 @@ const PathCards = ({
 
   const nextchapter = units.chapters[chapterIndex + 1];
   const prevchapter = units.chapters[chapterIndex - 1];
-  const today = new Date();
   return (
     <div className="flex-[1] mt-16 ml-8">
       <div className="todoList  ">
         <div className="cover-img">
           <div className="cover-inner">
-            {/* <h3 id="dayName">Sunday</h3> */}
-            <p>{/* {currentcount} days {currentcount > 1 ? "s" : " "} */}</p>
+            <h3 id="dayName "></h3>
           </div>
         </div>
         <div className="wrapper ">
@@ -251,20 +254,17 @@ const PathCards = ({
           <ul className="task-box text-red-100"></ul>
         </div>
       </div>
-      <div className="flex-col pb-3 items-center justify-center">
+      <div className="flex-col pb-3 items-center justify-between  w-fit h-auto ">
         {prevchapter && (
           <Link
             href={`/course/${course.id}/${unitIndex}/${chapterIndex - 1}`}
-            className=" flex mt-4 mr-auto w-fit"
+            className=" flex mt-4  "
           >
-            <div className="flex items-center ">
+            <div className="flex items-center  w-fit ">
               <div className="flex flex-col items-start ">
-                <span className="text-sm text-secondary-foreground/60">
-                  Previous
-                </span>
+                <span className="text-sm text-blue-500">Previous</span>
                 <span className="text-xl font-bold ">{prevchapter.name}</span>
               </div>
-              <ChevronLeft className="w-6 h-6 mr-10  " />
             </div>
           </Link>
         )}
@@ -272,16 +272,13 @@ const PathCards = ({
         {nextchapter && (
           <Link
             href={`/course/${course.id}/${unitIndex}/${chapterIndex + 1}`}
-            className=" flex mt-4 ml-auto w-fit"
+            className=" flex mt-4  "
           >
-            <div className="flex items-center">
+            <div className="flex items-center w-fit  ">
               <div className="flex flex-col items-start">
-                <span className="text-sm text-secondary-foreground/60">
-                  Next
-                </span>
+                <span className="text-sm text-blue-500">Next</span>
                 <span className="text-xl font-bold ">{nextchapter.name}</span>
               </div>
-              <ChevronRight className="w-6 h-6 mr-1" />
             </div>
           </Link>
         )}

@@ -36,7 +36,9 @@ const Navbar = async (props: Props) => {
                 </Link>
               </>
             )}
-            <ThemeToggle className="mr-3" />
+
+            {/* <ThemeToggle className="mr-3" /> */}
+
             <div className="flex items-center">
               {session?.user ? (
                 <UserAccountNav user={session.user} />
