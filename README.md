@@ -1,6 +1,6 @@
 ## MindGenAI 
-![secondlogoremovebg](https://github.com/KKrishna11/MindGenAI/assets/97391972/00a925b2-958b-4d8b-bd3d-430a3d5bd0b9)
 "Generate Brilliance, Mind by Mind"
+![secondlogoremovebg](https://github.com/KKrishna11/MindGenAI/assets/97391972/00a925b2-958b-4d8b-bd3d-430a3d5bd0b9)
 
 ## About MindGenAI
 MindGen AI is a cutting-edge educational platform revolutionizing the way we learn by
@@ -20,10 +20,10 @@ providing a comprehensive and feature-rich learning experience
 MindGen AI prioritizes user experience, offering an intuitive interface for easy navigation
 and a delightful learning journey.
 
+## AI-Powered Courses Tailored Just for You
+Welcome to MindGen AI, where AI transforms education. Experience personalized courses designed to fit your learning style. Join us and unlock your full learning potential today.
 ## Getting Started
-
 First, run the development server:
-
 ```bash
 npm run dev
 # or
