@@ -1,8 +1,8 @@
-## MindGen AI
-"Generate Brilliance, Mind by Mind
+## MindGenAI "Generate Brilliance, Mind by Mind
 
 
 
+![secondlogoremovebg](https://github.com/KKrishna11/MindGenAI/assets/97391972/00a925b2-958b-4d8b-bd3d-430a3d5bd0b9)
 
 ## Getting Started
 
