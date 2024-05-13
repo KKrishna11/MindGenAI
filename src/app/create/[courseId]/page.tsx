@@ -44,7 +44,7 @@ const createChapters = async({params:{courseId}}: Props) => {
       <div className='flex p-4 mt-10 border-none bg-secondary'>
         <Info className='w-12 h-12 mr-3 text-blue-400'/>
         <div>
-          we genarted chapter for each of your units. looks over them and then click the button  to confirm and contiinuing
+          We generated chapter for each of your units. looks over them and then click the button  to confirm and Continue
         </div>
       </div>
          <ConfirmChapters course={course}/>

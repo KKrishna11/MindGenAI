@@ -18,6 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/secondlogoremovebg.png" sizes="any" />
+      <title>MindGen-AI 🤖</title>
       <body className={lexend.className}>
         <Provider>
           <Navbar />

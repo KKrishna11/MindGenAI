@@ -6,6 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useToast } from "./use-toast";
 import { Loader, Loader2 } from "lucide-react";
+import { ToastAction } from "./toast";
 type Props = {
   chapters: Chapter;
   chapterIndex: number;
@@ -66,9 +67,9 @@ const ChapterCards = React.forwardRef<ChapterCardsHandler, Props>(
             console.log(error);
             setSuccess(false);
             toast({
-              title: "Error",
-              description: "There was an error loading your chapter",
-              variant: "destructive",
+              title: "Poor Internet Connection",
+              description: "Refresh Page And Click On Generate",
+              action: <ToastAction altText="Re Generate">Re Generate</ToastAction>,
             });
             addChapterIdtoSet();
           },

@@ -25,7 +25,7 @@ const CreatePage = async (props: Props) => {
         <div className="flex p-2 mb-3 border-2  border-white  bg-secondary">
           <InfoIcon className="w-12 h-12 mr-3 text-blue-50" />
           <div>
-            Enter the course title , or what you want to learn about list of
+            Enter the course title,or what you want to learn about list of
             units which are the specific you want to learn will genarte a course
             for you
           </div>

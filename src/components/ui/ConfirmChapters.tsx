@@ -8,6 +8,8 @@ import { Button, buttonVariants } from "./button";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { useToast } from "./use-toast";
 import { ToastAction } from "./toast";
+import { useRouter } from "next/navigation";
+
 // import { object } from "zod";
 
 type Props = {
@@ -18,8 +20,15 @@ type Props = {
   };
 };
 
-
 const ConfirmChapters = ({ course }: Props) => {
+  const router = useRouter();
+  // Force refresh the page
+
+  const handleReload = () => {
+    router.refresh();
+    document.location.reload()
+  };
+
   const chapterRefs: Record<string, React.RefObject<ChapterCardsHandler>> = {};
   course.units.forEach((units) => {
     units.chapters.forEach((chapters) => {
@@ -46,7 +55,7 @@ const ConfirmChapters = ({ course }: Props) => {
         return (
           <div key={units.id} className="mt-5">
             <h2 className="text-sm uppercase text-secondary-foreground/60">
-              Unit {unitIndex + 1}
+              {/* Unit {unitIndex + 1} */}
             </h2>
             <h3 className="text-2xl font-bold">{units.name} </h3>
             <div className="mt-3">
@@ -68,38 +77,42 @@ const ConfirmChapters = ({ course }: Props) => {
       })}
       <div className="flex items-center justify-center m-4">
         <Separator className="flex[6]" />
-        <div className="flex items-center mx-4">
+        <div className="flex items-center mx-4 flex items-center justify-self-center ">
           <Link
             href="/create"
             className={buttonVariants({
               variant: "secondary",
             })}
           >
-            <ChevronLeft className="w-4 h-4 mr-2" strokeWidth={4} />
+            <ChevronLeft className="w-4 h-4 mr-2 " strokeWidth={4} />
             Back
           </Link>
+
           {totalChapterCount === completedChapters.size ? (
-            <Button className="ml-4 px-5 ">
-              <Link
-                href={`/course/${course.id}/0/0`}
-                className="ml-4 font-semibold"
-              >
-                Continue
-              </Link>
-            </Button>
+            <div className="flex">
+              <Button className="ml-4 px-5 " onClick={handleReload} >
+                  Refresh
+              </Button>
+
+              <Button className="ml-4 px-5  bg-green-500 ">
+                <Link
+                  href={`/course/${course.id}/0/0`}
+                  className="font-extrabold text-black-900"
+                >
+                  Continue
+                </Link>
+              </Button>
+            </div>
           ) : (
             <Button
               type="button"
-              className="ml-4 font-extrabold"
+              className="ml-4 font-extrabold flex items-center justify-self-center		"
               disabled={loading}
               onClick={() => {
                 setLoading(true);
                 toast({
                   title: "Wait For a Second",
                   description: "MindGenAI",
-                  action: (
-                    <ToastAction altText="Try again">Try again</ToastAction>
-                  ),
                 });
 
                 Object.values(chapterRefs).forEach((ref) => {
@@ -108,7 +121,7 @@ const ConfirmChapters = ({ course }: Props) => {
               }}
             >
               Generate
-              <ChevronRight className="w-4 h-4 mr-2" strokeWidth={4} />
+              <ChevronRight className="w-4 h-4 ml-2" strokeWidth={4} />
             </Button>
           )}
         </div>
