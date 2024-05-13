@@ -75,7 +75,6 @@ export async function POST(req: Request, res: Response) {
   
     console.log("done");
   return NextResponse.json({ success: true });
-  // return NextResponse.json({videoId,transcript,summary})
   
 } catch (error) {
   if (error instanceof z.ZodError) {
