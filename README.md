@@ -16,6 +16,9 @@ content tailored to individual learning needs.
 2. Seamless Integration:
 Our platform seamlessly integrates with various APIs, including OpenAI, YouTube, and Stripe,
 providing a comprehensive and feature-rich learning experience
+3. User-Centric Design
+MindGen AI prioritizes user experience, offering an intuitive interface for easy navigation
+and a delightful learning journey.
 
 ## Getting Started
 
