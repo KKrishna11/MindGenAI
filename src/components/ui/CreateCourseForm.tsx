@@ -341,7 +341,7 @@ const CreateCourseForm = ({ isPro }: Props) => {
         </form>
       </Form>
       {!isPro && <SubscriptionAction />}
-      you&apos;re free
+      
     </div>
           
   );
