@@ -1,4 +1,4 @@
-##MindGen AI
+## MindGen AI
 "Generate Brilliance, Mind by Mind
 
 
