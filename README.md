@@ -55,6 +55,24 @@ bun dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+
+## Create Course
+
+Step 1
+Get started by logging in first, then hit the 'Create Course' link or button in the navbar. You'll be instantly whisked away to our innovative course creation page – just like that! Boom, yeah!
+
+Step 2
+Once you're in the 'Create Course' section, you'll find sleek input boxes waiting for your course title and units. Simply input your details, hit that button, and voilà! In just a second, watch as your course details and units magically generate right before your eyes.
+
+Step 3
+After your course details are magically generated, click the newly generated button again to summon YouTube videos and unit summaries. With a click, dive into the learning section, where your educational journey awaits!
+
+Step 4
+Congratulations on reaching the learning section - the gateway to a world of knowledge with MindGenAI! Strap on your learning cap and get ready for a rollercoaster ride of educational fun. But wait, there's more! By purchasing a subscription, you're not just upgrading your learning experience, you're also helping us sprinkle more genius dust on our courses for you and your fellow knowledge enthusiasts. It's like adding extra cheese to your pizza - because who doesn't love a little extra goodness, right?"
+
+Success
+
+
 ## Deploy on Vercel
 API AND ENV ARE NOT IN THE REPOSITORY 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
