@@ -35,14 +35,12 @@ Access a wide range of subjects and topics curated by experts, covering diverse 
 
 At MindGen AI, we're revolutionizing education with our advanced AI-powered platform. Unlike traditional learning methods, we tailor our courses to your individual learning style, ensuring a personalized and engaging experience every step of the way.
 
-Personalized Learning Paths                             
-Comprehensive Curriculum                                
-Interactive Learning Tools
-
-
-Seamless Integration
-24/7 Support
-Affordable Pricing Options
+•Personalized Learning Paths                             
+•Comprehensive Curriculum                                
+•Interactive Learning Tools
+•Seamless Integration
+•24/7 Support
+•Affordable Pricing Options
 
 ## Getting Started
 First, run the development server:
