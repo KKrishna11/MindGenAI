@@ -1092,7 +1092,88 @@ li {
 
 
 
+.fullscreencover {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
 
+.loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-center {
+  font-size: 2rem;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .text-center {
+    font-size: 1.5rem;
+  }
+}
+
+.loader-2.bar {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 68, 68, 1) 0%,
+    rgba(255, 204, 204, 1) 50%,
+    rgba(255, 68, 68, 1) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+/* dekh bhai iska  ckm */
+h1,
+h2 {
+  color: #fff;
+  margin: 0;
+}
+
+#mainSVG {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ell {
+  stroke-width: 5px;
+  fill: none;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .ell {
+    stroke-width: 3px;
+  }
+}
 
 
 
